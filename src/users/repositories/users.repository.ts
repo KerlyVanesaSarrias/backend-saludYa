@@ -33,4 +33,21 @@ export class UsersRepository {
     });
   }
 
+  async update(id: number, data: Partial<User>) {
+  await this.repo.update(id, data);
+
+  return this.repo.findOne({
+    where: { id },
+    select: [
+      'id',
+      'nombre',
+      'email',
+      'telefono',
+      'documento',
+      'rol',
+      'createdAt',
+    ],
+  });
+  }
+
 }

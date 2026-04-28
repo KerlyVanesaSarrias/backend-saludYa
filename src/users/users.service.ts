@@ -39,4 +39,8 @@ export class UsersService {
         return this.usersRepository.findByEmail(email);
     }
 
+    async update(id: number, data: any) {
+    return this.usersRepository.update(id, data);
+    }
+
 }
