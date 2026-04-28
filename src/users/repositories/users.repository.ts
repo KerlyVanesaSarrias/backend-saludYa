@@ -21,9 +21,16 @@ export class UsersRepository {
   }
 
   async findAll() {
-  return this.repo.find({
-    select: ['id', 'nombre', 'email', 'telefono', 'documento', 'rol', 'createdAt']
-  });
-}
+    return this.repo.find({
+      select: ['id', 'nombre', 'email', 'telefono', 'documento', 'rol', 'createdAt']
+    });
+  }
+
+  async findOne(id: number) {
+    return this.repo.findOne({
+      where: { id },
+      select: ['id', 'nombre', 'email', 'telefono', 'documento', 'rol', 'createdAt']
+    });
+  }
 
 }
